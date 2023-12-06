@@ -53,10 +53,11 @@ function batalha(){
     if (sorteio < chanceVitoria) {
         // Vitória
         heroi[1] += xpBatalha;
+        heroi[2] += 35;
 
         exibirVida();
 
-        exibicao.innerHTML = `<p>Voce venceu a batalha e ganhou mais ${xpBatalha} de XP!<br>Agora voce tem ${heroi[1]} de XP total!!</p>`
+        exibicao.innerHTML = `<p>Voce venceu a batalha e ganhou ${35} de vida e ${xpBatalha} de XP!<br>Agora voce tem ${heroi[1]} de XP total!!</p>`
 
     } else {
         // Derrota
