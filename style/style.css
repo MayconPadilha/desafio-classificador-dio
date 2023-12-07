@@ -6,7 +6,9 @@
 body {
   font-family: "Roboto Mono", monospace;
   text-align: center;
-  background-image: url("https://images2.alphacoders.com/954/954231.jpg");
+  background-image: 
+    url("https://images2.alphacoders.com/954/954231.jpg"),
+    url("../images/backgroud.jpg");
   background-color: #000000;
   background-size: cover;
   background-position: center top;
@@ -21,7 +23,7 @@ main div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 #telaJogo {
@@ -42,7 +44,13 @@ input {
   justify-content: space-evenly;
 }
 
-.escolhasBtn {
+.btnInicio {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.escolhasBtn, .btnVoltar {
   font-family: Arial;
   border: 0;
   color: #ffffff;

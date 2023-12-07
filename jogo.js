@@ -1,5 +1,6 @@
 let heroi = ['', 0, 0]
 let chanceVitoria = 0.7
+let chanceVitoriaBoss = 0.5
 
 function IniciarJogo(){
     document.getElementById("telaInicio").style.display = "none";
@@ -73,10 +74,40 @@ function batalha(){
 }
 
 function desafiarBoss() {
-    alert("Em breve!!")
+    let xpBoss = 500;
+
+    let exibicao = document.getElementById("telaResultado");
+
+    const sorteio = Math.random(); // Gera um número aleatório entre 0 e 1
+
+    if (sorteio < chanceVitoriaBoss) {
+        // Vitória
+        heroi[1] += xpBoss;
+        heroi[2] += 300;
+
+        exibirVida();
+
+        exibicao.innerHTML = `<p> Você ganhou desse Boss fraquinho!! Ganhou ${300} de vida e ${xpBoss} de XP!<br> Agora voce tem ${heroi[1]} de XP total!!</p> `;
+
+    } else {
+        // Derrota
+        let vidaPerdida = Math.floor(Math.random() * 41) + 60;
+        let xpPerdida = 200; // Valor fixo para a perda de XP após derrota
+
+        heroi[2] -= vidaPerdida;
+        heroi[1] -= xpPerdida;
+
+        exibirVida();
+
+        exibicao.innerHTML = `<p>Voce perdeu a batalha contra o Boss e perdeu ${vidaPerdida} de vida e ${xpPerdida} de XP! <br>Agora voce tem ${heroi[1]} de XP total!!</p>`;
+    }
 }
 
 function exibirVida() {
     let exibirVida = document.getElementById("exibirVida");
     exibirVida.innerHTML = `<p>Voce tem ${heroi[2]} de vida!</p>`;
+}
+
+function InformacoesPopup() {
+    window.open("info.html", "_blank");
 }
